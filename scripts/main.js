@@ -1,149 +1,149 @@
-// var map = new mapboxgl.Map({
-//     container: 'map',
-//     style: 'mapbox://styles/mapbox/streets-v10',
-//     center: [-74.50, 40],
-//     zoom: 9
-//   });
+mapboxgl.accessToken = 'pk.eyJ1Ijoid2lsbGlhbW1hZGlzb25kYXZpcyIsImEiOiJjamtjbzBwd3YwMDVvM3JteXkydXo4dGdpIn0.S8zwiYqhbuDiMHnPELZOpQ';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v9',
+    center: [-98, 38.88],
+    maxZoom: 5,
+    minZoom: 1,
+    zoom: 3
+});
 
-mapboxgl.accessToken = "pk.eyJ1Ijoid2lsbGlhbW1hZGlzb25kYXZpcyIsImEiOiJjamtjbzBwd3YwMDVvM3JteXkydXo4dGdpIn0.S8zwiYqhbuDiMHnPELZOpQ";
-    var map = new mapboxgl.Map({
-        container: "map",
-        style: "mapbox://styles/williammadisondavis/cjkcouigs1gfo2soz8jjgonrs"
+// Holds visible airport features for filtering
+var airports = [];
+
+// Create a popup, but don't add it to the map yet.
+var popup = new mapboxgl.Popup({
+    closeButton: false
+});
+
+var filterEl = document.getElementById('feature-filter');
+var listingEl = document.getElementById('feature-listing');
+
+function renderListings(features) {
+    // Clear any existing listings
+    listingEl.innerHTML = '';
+    if (features.length) {
+        features.forEach(function(feature) {
+            var prop = feature.properties;
+            var item = document.createElement('a');
+            item.href = prop.wikipedia;
+            item.target = '_blank';
+            item.textContent = prop.name + ' (' + prop.abbrev + ')';
+            item.addEventListener('mouseover', function() {
+                // Highlight corresponding feature on the map
+                popup.setLngLat(feature.geometry.coordinates)
+                    .setText(feature.properties.name + ' (' + feature.properties.abbrev + ')')
+                    .addTo(map);
+            });
+            listingEl.appendChild(item);
+        });
+
+        // Show the filter input
+        filterEl.parentNode.style.display = 'block';
+    } else {
+        var empty = document.createElement('p');
+        empty.textContent = 'Drag the map to populate results';
+        listingEl.appendChild(empty);
+
+        // Hide the filter input
+        filterEl.parentNode.style.display = 'none';
+
+        // remove features filter
+        map.setFilter('airport', ['has', 'abbrev']);
+    }
+}
+
+function normalize(string) {
+    return string.trim().toLowerCase();
+}
+
+function getUniqueFeatures(array, comparatorProperty) {
+    var existingFeatureKeys = {};
+    // Because features come from tiled vector data, feature geometries may be split
+    // or duplicated across tile boundaries and, as a result, features may appear
+    // multiple times in query results.
+    var uniqueFeatures = array.filter(function(el) {
+        if (existingFeatureKeys[el.properties[comparatorProperty]]) {
+            return false;
+        } else {
+            existingFeatureKeys[el.properties[comparatorProperty]] = true;
+            return true;
+        }
     });
-    map.on("load", function () {
-    // Add a layer showing the places.
+
+    return uniqueFeatures;
+}
+
+map.on('load', function() {
+
     map.addLayer({
-        "id": "places",
-        "type": "symbol",
+        "id": "airport",
         "source": {
-            "type": "geojson",
-            "data": {
-                "type": "FeatureCollection",
-                "features": [{
-                    "type": "Feature",
-                    "properties": {
-                        "description": "<strong>Make it Mount Pleasant</strong><p><a href=\"http://www.mtpleasantdc.com/makeitmtpleasant\" target=\"_blank\" title=\"Opens in a new window\">Make it Mount Pleasant</a> is a handmade and vintage market and afternoon of live entertainment and kids activities. 12:00-6:00 p.m.</p>",
-                        "icon": "theatre"
-                    },
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [-84.390200, 33.749100]
-                    }
-                }, {
-                    "type": "Feature",
-                    "properties": {
-                        "description": "<strong>Mad Men Season Five Finale Watch Party</strong><p>Head to Lounge 201 (201 Massachusetts Avenue NE) Sunday for a <a href=\"http://madmens5finale.eventbrite.com/\" target=\"_blank\" title=\"Opens in a new window\">Mad Men Season Five Finale Watch Party</a>, complete with 60s costume contest, Mad Men trivia, and retro food and drink. 8:00-11:00 p.m. $10 general admission, $20 admission and two hour open bar.</p>",
-                        "icon": "theatre"
-                    },
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [-77.003168, 38.894651]
-                    }
-                }, {
-                    "type": "Feature",
-                    "properties": {
-                        "description": "<strong>Big Backyard Beach Bash and Wine Fest</strong><p>EatBar (2761 Washington Boulevard Arlington VA) is throwing a <a href=\"http://tallulaeatbar.ticketleap.com/2012beachblanket/\" target=\"_blank\" title=\"Opens in a new window\">Big Backyard Beach Bash and Wine Fest</a> on Saturday, serving up conch fritters, fish tacos and crab sliders, and Red Apron hot dogs. 12:00-3:00 p.m. $25.grill hot dogs.</p>",
-                        "icon": "bar"
-                    },
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [-77.090372, 38.881189]
-                    }
-                }, {
-                    "type": "Feature",
-                    "properties": {
-                        "description": "<strong>Ballston Arts & Crafts Market</strong><p>The <a href=\"http://ballstonarts-craftsmarket.blogspot.com/\" target=\"_blank\" title=\"Opens in a new window\">Ballston Arts & Crafts Market</a> sets up shop next to the Ballston metro this Saturday for the first of five dates this summer. Nearly 35 artists and crafters will be on hand selling their wares. 10:00-4:00 p.m.</p>",
-                        "icon": "art-gallery"
-                    },
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [-77.111561, 38.882342]
-                    }
-                }, {
-                    "type": "Feature",
-                    "properties": {
-                        "description": "<strong>Seersucker Bike Ride and Social</strong><p>Feeling dandy? Get fancy, grab your bike, and take part in this year's <a href=\"http://dandiesandquaintrelles.com/2012/04/the-seersucker-social-is-set-for-june-9th-save-the-date-and-start-planning-your-look/\" target=\"_blank\" title=\"Opens in a new window\">Seersucker Social</a> bike ride from Dandies and Quaintrelles. After the ride enjoy a lawn party at Hillwood with jazz, cocktails, paper hat-making, and more. 11:00-7:00 p.m.</p>",
-                        "icon": "bicycle"
-                    },
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [-77.052477, 38.943951]
-                    }
-                }, {
-                    "type": "Feature",
-                    "properties": {
-                        "description": "<strong>Capital Pride Parade</strong><p>The annual <a href=\"http://www.capitalpride.org/parade\" target=\"_blank\" title=\"Opens in a new window\">Capital Pride Parade</a> makes its way through Dupont this Saturday. 4:30 p.m. Free.</p>",
-                        "icon": "star"
-                    },
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [-77.043444, 38.909664]
-                    }
-                }, {
-                    "type": "Feature",
-                    "properties": {
-                        "description": "<strong>Muhsinah</strong><p>Jazz-influenced hip hop artist <a href=\"http://www.muhsinah.com\" target=\"_blank\" title=\"Opens in a new window\">Muhsinah</a> plays the <a href=\"http://www.blackcatdc.com\">Black Cat</a> (1811 14th Street NW) tonight with <a href=\"http://www.exitclov.com\" target=\"_blank\" title=\"Opens in a new window\">Exit Clov</a> and <a href=\"http://godsilla.bandcamp.com\" target=\"_blank\" title=\"Opens in a new window\">Gods’illa</a>. 9:00 p.m. $12.</p>",
-                        "icon": "music"
-                    },
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [-77.031706, 38.914581]
-                    }
-                }, {
-                    "type": "Feature",
-                    "properties": {
-                        "description": "<strong>A Little Night Music</strong><p>The Arlington Players' production of Stephen Sondheim's  <a href=\"http://www.thearlingtonplayers.org/drupal-6.20/node/4661/show\" target=\"_blank\" title=\"Opens in a new window\"><em>A Little Night Music</em></a> comes to the Kogod Cradle at The Mead Center for American Theater (1101 6th Street SW) this weekend and next. 8:00 p.m.</p>",
-                        "icon": "music"
-                    },
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [-77.020945, 38.878241]
-                    }
-                }, {
-                    "type": "Feature",
-                    "properties": {
-                        "description": "<strong>Truckeroo</strong><p><a href=\"http://www.truckeroodc.com/www/\" target=\"_blank\">Truckeroo</a> brings dozens of food trucks, live music, and games to half and M Street SE (across from Navy Yard Metro Station) today from 11:00 a.m. to 11:00 p.m.</p>",
-                        "icon": "music"
-                    },
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [-77.007481, 38.876516]
-                    }
-                }]
-            }
+            "type": "vector",
+            "url": "mapbox://mapbox.04w69w5j"
         },
+        "source-layer": "ne_10m_airports",
+        "type": "symbol",
         "layout": {
-            "icon-image": "{icon}-15",
-            "icon-allow-overlap": true
+            "icon-image": "airport-15",
+            "icon-padding": 0,
+            "icon-allow-overlap":true
         }
     });
 
-    // When a click event occurs on a feature in the places layer, open a popup at the
-    // location of the feature, with description HTML from its properties.
-    map.on('click', 'places', function (e) {
-        var coordinates = e.features[0].geometry.coordinates.slice();
-        var description = e.features[0].properties.description;
+    map.on('moveend', function() {
+        var features = map.queryRenderedFeatures({layers:['airport']});
 
-        // Ensure that if the map is zoomed out such that multiple
-        // copies of the feature are visible, the popup appears
-        // over the copy being pointed to.
-        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        if (features) {
+            var uniqueFeatures = getUniqueFeatures(features, "iata_code");
+            // Populate features for the listing overlay.
+            renderListings(uniqueFeatures);
+
+            // Clear the input container
+            filterEl.value = '';
+
+            // Store the current features in sn `airports` variable to
+            // later use for filtering on `keyup`.
+            airports = uniqueFeatures;
         }
+    });
 
-        new mapboxgl.Popup()
-            .setLngLat(coordinates)
-            .setHTML(description)
+    map.on('mousemove', 'airport', function(e) {
+        // Change the cursor style as a UI indicator.
+        map.getCanvas().style.cursor = 'pointer';
+
+        // Populate the popup and set its coordinates based on the feature.
+        var feature = e.features[0];
+        popup.setLngLat(feature.geometry.coordinates)
+            .setText(feature.properties.name + ' (' + feature.properties.abbrev + ')')
             .addTo(map);
     });
 
-    // Change the cursor to a pointer when the mouse is over the places layer.
-    map.on('mouseenter', 'places', function () {
-        map.getCanvas().style.cursor = 'pointer';
+    map.on('mouseleave', 'airport', function() {
+        map.getCanvas().style.cursor = '';
+        popup.remove();
     });
 
-    // Change it back to a pointer when it leaves.
-    map.on('mouseleave', 'places', function () {
-        map.getCanvas().style.cursor = '';
+    filterEl.addEventListener('keyup', function(e) {
+        var value = normalize(e.target.value);
+
+        // Filter visible features that don't match the input value.
+        var filtered = airports.filter(function(feature) {
+            var name = normalize(feature.properties.name);
+            var code = normalize(feature.properties.abbrev);
+            return name.indexOf(value) > -1 || code.indexOf(value) > -1;
+        });
+
+        // Populate the sidebar with filtered results
+        renderListings(filtered);
+
+        // Set the filter to populate features into the layer.
+        map.setFilter('airport', ['match', ['get', 'abbrev'], filtered.map(function(feature) {
+            return feature.properties.abbrev;
+        }), true, false]);
     });
+
+    // Call this function on initialization
+    // passing an empty array to render an empty state
+    renderListings([]);
 });
