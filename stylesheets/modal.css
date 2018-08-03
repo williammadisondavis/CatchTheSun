@@ -41,3 +41,7 @@
     /* Temporary background color to see layout */
     background-color: yellow;
 }
+
+.hidden {
+    display: none;
+}
