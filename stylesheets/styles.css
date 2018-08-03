@@ -1,0 +1,74 @@
+body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-size: 10px;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+    /* Temporary background color to see layout */
+    background-color: beige;
+}
+   
+.main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 90%;
+
+    /* Temporary background color to see layout */
+    background-color: rgb(167, 184, 233);
+}
+
+.map {
+    width: 100%;
+    height: 70%;
+
+    /* Temporary background color to see layout */
+    background-color: green;
+}
+
+.search-listings {
+    width: 100%;
+    height: 30%;
+    overflow-y: auto;
+    margin-top: 0.5em;
+}
+
+.listing {
+    display: flex;
+    width: 90%;
+    height: 5rem;
+    margin: auto;
+    border: .1em solid black;
+
+    /* Temporary background color to see layout */
+    background-color: white;
+}
+
+.listing-image {
+    width: 6rem;
+    height: 5rem;
+
+    /* Temporary background color to see layout */
+    background-color: blue;
+}
+
+/* @media(min-width: 360px) {
+
+}
+
+@media(min-width: 768px) {
+
+}
+
+@media(min-width: 1200px) {
+    .main {
+        flex-direction: row;
+    }
+} */
