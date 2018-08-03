@@ -1,29 +1,42 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset='utf-8' />
-    <title>Points on a map</title>
-    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.47.0/mapbox-gl.css' rel='stylesheet' />
-
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-      }
-
-      #map {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 100%;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="map"></div>
-    <div id="map" style="width: 400px; height: 300px;"></div>
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.47.0/mapbox-gl.js'></script>
-    <script src="main.js"></script>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Place favicon below when found -->
+    <link rel="favicon" href="#" type="image/x-icon">
+    <link rel="stylesheet" href="stylesheets/styles.css"/>
+    <title>Catch the Sun</title>
+</head>
+<body>
+    <div class="header">
+        <p class="title">Catch the Sun</p>
+    </div>
+    <div class="main">
+        <div class="map">
+            <!-- Map generated in JS -->
+        </div>
+        <div class="search-listings">
+            <div class="listing">
+                <div class="listing-image"></div>
+                <div class="listing-info">
+                    <p class="listing-title"></p>
+                    <!-- Description hidden in mobile. Shown in desktop -->
+                    <p class="listing-description hidden"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-screen">
+        <div class="modal-box">
+            <div class="modal-image"></div>
+            <div class="modal-info">
+                <p class="modal-title"></p>
+                <p class="modal-description"></p>
+            </div>
+        </div>
+    </div>
+    <script src="scripts/main.js" charset="utf-8"></script>
+</body>
 </html>
