@@ -38,4 +38,15 @@ var initMap = function () {
         center: {lat: 33.7490, lng: -84.3880},
         zoom: 8
     });
-}
+    addPinsToMap(map);
+};
+
+var addPinsToMap = function (map) {
+    pins.forEach( function (pin) {
+        var marker = new google.maps.Marker( {
+            position: pin.position,
+            map: map,
+            title: pin.title
+        });
+    })
+};
