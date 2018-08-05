@@ -74,3 +74,8 @@ body, html {
         flex-direction: row;
     }
 } */
+
+.infoWindowImage {
+    width: 4em;
+    height: 4em;
+}
