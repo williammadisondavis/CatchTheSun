@@ -36,17 +36,22 @@ var mapContainer = document.querySelector(".map");
 var initMap = function () {
     var map = new google.maps.Map(mapContainer, {
         center: {lat: 33.7490, lng: -84.3880},
-        zoom: 8
+        zoom: 10
     });
-    addPinsToMap(map);
+    var infoWindow = new google.maps.InfoWindow();
+    addPinsToMap(map, infoWindow);
 };
 
-var addPinsToMap = function (map) {
+var addPinsToMap = function (map, infoWindow) {
     pins.forEach( function (pin) {
         var marker = new google.maps.Marker( {
             position: pin.position,
             map: map,
             title: pin.title
+        });
+        google.maps.event.addListener(marker, 'click', function() {
+            infoWindow.setContent(pin.title);
+            infoWindow.open(map, marker);
         });
     })
 };
