@@ -31,18 +31,82 @@ var pins = [
     },
 ];
 
+var map;
 var mapContainer = document.querySelector(".map");
 
 var initMap = function () {
-    var map = new google.maps.Map(mapContainer, {
+    map = new google.maps.Map(mapContainer, {
         center: {lat: 33.7490, lng: -84.3880},
         zoom: 10
     });
     var infoWindow = new google.maps.InfoWindow();
-    addPinsToMap(map, infoWindow);
+    addMarkersToMap(infoWindow);
+    showVisibleMarkers();
 };
 
-var addPinsToMap = function (map, infoWindow) {
+var showVisibleMarkers = function () {
+    // Fired when the map becomes idle after panning or zooming.
+    google.maps.event.addListener(map, 'idle', function() {
+        // get bounds of current map viewport
+        var mapBounds = map.getBounds();
+        var searchListings = document.querySelector(".search-listings");
+        clearListingDisplay();
+        // loop through pins objects
+        pins.forEach(function (pin) {
+            // if mapBounds contains the pin position
+            if (mapBounds.contains(pin.position)) {
+                // display on screen
+                searchListings.appendChild(displayListing(pin));
+            }
+        })
+    });
+};
+
+var clearListingDisplay = function () {
+    var listings = document.querySelectorAll(".listing");
+    listings.forEach(function (listing) {
+        listing.remove();
+    })
+};
+
+var displayListing = function (pin) {
+    var listing = document.createElement("div");
+    listing.classList.add("listing");
+    listing.appendChild(listingImageDisplay(pin));
+    listing.appendChild(listingInfoDisplay(pin));
+    return listing;
+};
+
+var listingInfoDisplay = function (pin) {
+    var listingInfoContainer = document.createElement("div");
+    listingInfoContainer.classList.add("listing-info");
+    listingInfoContainer.appendChild(listingInfoTitle(pin));
+    listingInfoContainer.appendChild(listingInfoDescription(pin));
+    return listingInfoContainer;
+};
+
+var listingInfoTitle = function (pin) {
+    var listingTitle = document.createElement("p");
+    listingTitle.classList.add("listing-title");
+    listingTitle.textContent = pin.title;
+    return listingTitle;
+};
+
+var listingInfoDescription = function (pin) {
+    var listingDescription = document.createElement("p");
+    listingDescription.classList.add("listing-description");
+    listingDescription.textContent = pin.description;
+    return listingDescription;
+};
+
+var listingImageDisplay = function(pin) {
+    var listingImage = document.createElement("img");
+    listingImage.classList.add("listing-image");
+    listingImage.setAttribute("src", pin.image);
+    return listingImage;
+};
+
+var addMarkersToMap = function (infoWindow) {
     pins.forEach( function (pin) {
         var marker = new google.maps.Marker( {
             position: pin.position,
@@ -64,4 +128,4 @@ var addInfoWindowContent = function (pin) {
     infoWindowImage.setAttribute("src", pin.image);
     infoWindowContent.appendChild(infoWindowImage);
     return infoWindowContent;
-}
+};
