@@ -21,6 +21,7 @@ body, html {
     display: flex;
     height: 100%;
     width: 30rem;
+    object-fit: cover;
 }
 
 .main {
@@ -69,13 +70,18 @@ body, html {
 
 /* @media(min-width: 360px) {
 
-}
+} */
 
 @media(min-width: 768px) {
-
+    .logo {
+        display: flex;
+        height: 100%;
+        width: 65rem;
+        object-fit: cover; 
+    }
 }
 
-@media(min-width: 1200px) {
+/* @media(min-width: 1200px) {
     .main {
         flex-direction: row;
     }
