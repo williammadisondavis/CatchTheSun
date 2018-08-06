@@ -17,6 +17,12 @@ body, html {
     background-color: beige;
 }
    
+.logo {
+    display: flex;
+    height: 180%;
+    width: 82rem;
+}
+
 .main {
     display: flex;
     flex-direction: column;
