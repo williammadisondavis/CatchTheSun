@@ -68,6 +68,15 @@ body, html {
     background-color: blue;
 }
 
+.infoWindowImage {
+    width: 4em;
+    height: 4em;
+}
+
+.visibility {
+    visibility: hidden;
+}
+
 /* @media(min-width: 360px) {
 
 } */
@@ -79,15 +88,14 @@ body, html {
         width: 65rem;
         object-fit: cover; 
     }
+
+    .visibility {
+        visibility: visible;
+    }
 }
 
-/* @media(min-width: 1200px) {
+@media(min-width: 1200px) {
     .main {
         flex-direction: row;
     }
-} */
-
-.infoWindowImage {
-    width: 4em;
-    height: 4em;
 }
