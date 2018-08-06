@@ -17,11 +17,10 @@ body, html {
     background-color: beige;
 }
    
-.CatchTheSunLogo {
+.logo {
     display: flex;
-    height: 210%;
-    width: 860px;
-    padding-top: 3px;
+    height: 180%;
+    width: 82rem;
 }
 
 .main {
