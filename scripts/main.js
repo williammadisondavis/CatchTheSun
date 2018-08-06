@@ -95,7 +95,7 @@ var listingInfoTitle = function (pin) {
 var listingInfoDescription = function (pin) {
     var listingDescription = document.createElement("p");
     listingDescription.classList.add("listing-description");
-    listingDescription.classList.add("visibility");
+    listingDescription.classList.add("description-visibility");
     listingDescription.textContent = pin.description;
     return listingDescription;
 };
