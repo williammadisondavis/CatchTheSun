@@ -69,13 +69,17 @@ body, html {
 
 /* @media(min-width: 360px) {
 
-}
+} */
 
 @media(min-width: 768px) {
-
+    .logo {
+        display: flex;
+        height: 140%;
+        width: 65rem;
+    }
 }
 
-@media(min-width: 1200px) {
+/* @media(min-width: 1200px) {
     .main {
         flex-direction: row;
     }
