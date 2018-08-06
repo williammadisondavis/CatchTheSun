@@ -21,6 +21,7 @@ body, html {
     display: flex;
     height: 100%;
     width: 30rem;
+    object-fit: cover;
 }
 
 .main {
@@ -74,8 +75,9 @@ body, html {
 @media(min-width: 768px) {
     .logo {
         display: flex;
-        height: 140%;
+        height: 100%;
         width: 65rem;
+        object-fit: cover; 
     }
 }
 
