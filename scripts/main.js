@@ -50,6 +50,7 @@ var showVisibleMarkers = function () {
         // get bounds of current map viewport
         var mapBounds = map.getBounds();
         var searchListings = document.querySelector(".search-listings");
+        clearListingDisplay();
         // loop through pins objects
         pins.forEach(function (pin) {
             // if mapBounds contains the pin position
@@ -59,6 +60,13 @@ var showVisibleMarkers = function () {
             }
         })
     });
+};
+
+var clearListingDisplay = function () {
+    var listings = document.querySelectorAll(".listing");
+    listings.forEach(function (listing) {
+        listing.remove();
+    })
 };
 
 var displayListing = function (pin) {
@@ -92,13 +100,10 @@ var listingInfoDescription = function (pin) {
 };
 
 var listingImageDisplay = function(pin) {
-    var imageContainer = document.createElement("div");
-    imageContainer.classList.add("listing-image");
     var listingImage = document.createElement("img");
     listingImage.classList.add("listing-image");
     listingImage.setAttribute("src", pin.image);
-    imageContainer.appendChild(listingImage);
-    return imageContainer;
+    return listingImage;
 };
 
 var addMarkersToMap = function (infoWindow) {
@@ -123,4 +128,4 @@ var addInfoWindowContent = function (pin) {
     infoWindowImage.setAttribute("src", pin.image);
     infoWindowContent.appendChild(infoWindowImage);
     return infoWindowContent;
-}
+};
