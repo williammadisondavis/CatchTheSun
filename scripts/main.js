@@ -33,6 +33,11 @@ var pins = [
 
 var map;
 var mapContainer = document.querySelector(".map");
+var modalScreen = document.querySelector(".modal-screen");
+var modalImage = document.querySelector(".modal-image");
+var modalTitle = document.querySelector(".modal-title");
+var modalDescription = document.querySelector(".modal-description");
+var modalCloseButton = document.querySelector(".close-modal");
 
 var initMap = function () {
     map = new google.maps.Map(mapContainer, {
@@ -74,6 +79,9 @@ var displayListing = function (pin) {
     listing.classList.add("listing");
     listing.appendChild(listingImageDisplay(pin));
     listing.appendChild(listingInfoDisplay(pin));
+    listing.addEventListener("click", function () {
+        openModalScreen(pin);
+    });
     return listing;
 };
 
@@ -130,3 +138,23 @@ var addInfoWindowContent = function (pin) {
     infoWindowContent.appendChild(infoWindowImage);
     return infoWindowContent;
 };
+
+var openModalScreen = function (pin) {
+    modalScreen.classList.remove("hidden");
+    modalImage.setAttribute("src", pin.image);
+    modalTitle.textContent = pin.title;
+    modalDescription.textContent = pin.description;
+};
+
+var windowOnClick = function (event) {
+    if (event.target === modalScreen) {
+        hideModalScreen();
+    }
+};
+
+var hideModalScreen = function () {
+    modalScreen.classList.add("hidden");
+};
+
+modalCloseButton.addEventListener("click", hideModalScreen);
+window.addEventListener("click", windowOnClick);
