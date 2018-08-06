@@ -3,7 +3,7 @@ var pins = [
       title: "Stone Mountain",
       position: {lat: 33.8082, lng: -84.1702}, 
       description: "Gummies fruitcake marshmallow chocolate oat cake tootsie roll marshmallow cookie pie. Oat cake bonbon biscuit lemon drops. Bonbon bear claw bonbon cotton candy sweet pie jelly beans.", 
-      image: "images/image01.jpg" 
+      image: "images/image01.jpg"
     },
     { 
       title: "Arabia Mountain",

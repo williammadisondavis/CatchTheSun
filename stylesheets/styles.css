@@ -19,8 +19,8 @@ body, html {
    
 .logo {
     display: flex;
-    height: 180%;
-    width: 82rem;
+    height: 100%;
+    width: 30rem;
 }
 
 .main {
