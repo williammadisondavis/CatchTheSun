@@ -63,7 +63,6 @@ body, html {
     border: .1em solid gray;
     font-size: 1.5em;
     border-radius: 0.2em;
-    display: flex;
     /* Temporary background color to see layout */
     background-color: white;
 }
