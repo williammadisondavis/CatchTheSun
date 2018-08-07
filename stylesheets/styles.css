@@ -68,7 +68,11 @@ body, html {
     background-color: blue;
 }
 
-.infoWindowImage {
+.info-window-title {
+    font-weight: bold;
+}
+
+.info-window-image {
     width: 4em;
     height: 4em;
 }
