@@ -132,15 +132,23 @@ var addMarkersToMap = function (infoWindow) {
 var addInfoWindowContent = function (pin) {
     var infoWindowContent = document.createElement("div");
     infoWindowContent.classList.add("info-window");
+    infoWindowContent.appendChild(infoWindowTitle(pin));
+    infoWindowContent.appendChild(infoWindowImage(pin));
+    return infoWindowContent;
+};
+
+var infoWindowTitle = function (pin) {
     var infoWindowTitle = document.createElement("p");
     infoWindowTitle.classList.add("info-window-title");
     infoWindowTitle.textContent = pin.title;
+    return infoWindowTitle;
+};
+
+var infoWindowImage = function (pin) {
     var infoWindowImage = document.createElement("img");
     infoWindowImage.classList.add("info-window-image");
     infoWindowImage.setAttribute("src", pin.image);
-    infoWindowContent.appendChild(infoWindowTitle);
-    infoWindowContent.appendChild(infoWindowImage);
-    return infoWindowContent;
+    return infoWindowImage;
 };
 
 var openModalScreen = function (pin) {
