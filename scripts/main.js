@@ -116,16 +116,9 @@ var listingImageDisplay = function(pin) {
     return listingImage;
 };
 
-var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
-var icons = {
-    sunny: {
-      icon: iconBase + 'sunny.png'
-    },
-  };
-
 var addMarkersToMap = function (infoWindow) {
     pins.forEach( function (pin) {
-        var image = {
+        var markerIcon = {
             url: 'https://maps.google.com/mapfiles/kml/shapes/sunny.png',
             size: new google.maps.Size(30, 30),
             origin: new google.maps.Point(0, 0),
@@ -135,7 +128,7 @@ var addMarkersToMap = function (infoWindow) {
         var marker = new google.maps.Marker( {
             position: pin.position,
             map: map,
-            icon: image,
+            icon: markerIcon,
             title: pin.title
         });
         google.maps.event.addListener(marker, 'click', function() {
