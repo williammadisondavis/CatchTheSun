@@ -131,12 +131,12 @@ var addMarkersToMap = function (infoWindow) {
 
 var addInfoWindowContent = function (pin) {
     var infoWindowContent = document.createElement("div");
-    infoWindowContent.classList.add("infoWindow");
+    infoWindowContent.classList.add("info-window");
     var infoWindowTitle = document.createElement("p");
     infoWindowTitle.classList.add("info-window-title");
     infoWindowTitle.textContent = pin.title;
     var infoWindowImage = document.createElement("img");
-    infoWindowImage.classList.add("infoWindowImage");
+    infoWindowImage.classList.add("info-window-image");
     infoWindowImage.setAttribute("src", pin.image);
     infoWindowContent.appendChild(infoWindowTitle);
     infoWindowContent.appendChild(infoWindowImage);
