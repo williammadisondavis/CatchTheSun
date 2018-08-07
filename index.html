@@ -16,6 +16,7 @@
     </div>
     </div>
     <div class="main">
+        <input class="search-input" type="text" placeholder="Search Box">
         <div class="map">
             <!-- Map generated in JS -->
         </div>
@@ -33,8 +34,9 @@
             </div>
         </div>
     </div>
+    <script src="scripts/config.js"></script>
     <script src="scripts/main.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeqLMaGy-y8ab1N-GA5zCNL7NGmwRmUzU&callback=initMap"
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&libraries=places&key=" + gmKey
     async defer></script>
 </body>
 </html>

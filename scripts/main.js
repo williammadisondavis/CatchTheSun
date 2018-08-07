@@ -31,6 +31,7 @@ var pins = [
     },
 ];
 
+var gmKey = config.GM_KEY;
 var map;
 var mapContainer = document.querySelector(".map");
 var modalScreen = document.querySelector(".modal-screen");
@@ -45,6 +46,7 @@ var initMap = function () {
         zoom: 10
     });
     var infoWindow = new google.maps.InfoWindow();
+    loadSearchBox();
     addMarkersToMap(infoWindow);
     showVisibleMarkers();
 };
@@ -166,6 +168,31 @@ var windowOnClick = function (event) {
 
 var hideModalScreen = function () {
     modalScreen.classList.add("hidden");
+};
+
+var loadSearchBox = function () {
+    var searchInput = document.querySelector(".search-input");
+    var searchBox = new google.maps.places.SearchBox(searchInput);
+    map.controls[google.maps.ControlPosition.TOP_LEFT].push(searchInput);
+    map.addListener('bounds_changed', function() {
+        searchBox.setBounds(map.getBounds());
+    });
+    searchBox.addListener("places_changed", function () {
+        searchBoxListener(searchBox);
+    });
+};
+
+var searchBoxListener = function (searchBox) {
+    var places = searchBox.getPlaces();
+    var bounds = new google.maps.LatLngBounds();
+    places.forEach(function(place) {
+        if (place.geometry.viewport) {
+            bounds.union(place.geometry.viewport);
+        } else {
+            bounds.extend(place.geometry.location);
+        }
+        });
+        map.fitBounds(bounds);
 };
 
 modalCloseButton.addEventListener("click", hideModalScreen);
