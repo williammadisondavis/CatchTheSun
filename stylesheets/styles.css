@@ -164,10 +164,6 @@ body, html {
         flex-direction: row;
     }
 
-    .logo {
-        object-fit: cover;
-    }
-
     .map {
         margin-top: 1em;
         width: 100%;
