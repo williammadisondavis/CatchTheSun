@@ -30,7 +30,7 @@ body, html {
     height: 2em;
     width: 11em;
     font-size: 1.3rem;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0em 0.1em 0.4em -0.1em;
 }
 
 .main {
