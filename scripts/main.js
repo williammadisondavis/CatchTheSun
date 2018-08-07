@@ -80,11 +80,19 @@ var displayListing = function (pin) {
     listing.classList.add("listing");
     listing.appendChild(listingImageDisplay(pin));
     listing.appendChild(listingInfoDisplay(pin));
+    listing.appendChild(listingArrowDisplay());
     listing.addEventListener("click", function () {
         openModalScreen(pin);
     });
     return listing;
 };
+
+var listingArrowDisplay = function () {
+    var listingArrow = document.createElement("div");
+    listingArrow.classList.add("listing-arrow");
+    listingArrow.textContent = ">";
+    return listingArrow;
+}
 
 var listingInfoDisplay = function (pin) {
     var listingInfoContainer = document.createElement("div");

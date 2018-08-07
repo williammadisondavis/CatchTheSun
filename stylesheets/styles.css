@@ -63,7 +63,6 @@ body, html {
     border: .1em solid gray;
     font-size: 1.5em;
     border-radius: 0.2em;
-
     /* Temporary background color to see layout */
     background-color: white;
 }
@@ -81,11 +80,26 @@ body, html {
 
 .listing-info {
     margin-left: 0.5em;
+    flex: 1;
 }
 
 .listing-title {
     margin-top: 0.4em;
     font-weight: bold;
+}
+
+.listing-arrow {
+    font-family: 'Do Hyeon', sans-serif;
+    height: 100%;
+    font-size: 3rem;
+    color: lightgrey;
+    margin-right: .5rem;
+    display: flex;
+    align-items: center;
+}
+
+.listing-arrow:hover {
+    color: black;
 }
 
 .info-window-title {
@@ -138,6 +152,12 @@ body, html {
     .listing-image {
         width: 8rem;
         height: 8rem;
+    }
+
+    .listing-arrow {
+        font-size: 5rem;
+        padding-left: 1rem;
+        margin-right: 0;
     }
 
     .description-visibility {
