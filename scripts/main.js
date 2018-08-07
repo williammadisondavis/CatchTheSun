@@ -31,7 +31,6 @@ var pins = [
     },
 ];
 
-var gmKey = config.GM_KEY;
 var map;
 var mapContainer = document.querySelector(".map");
 var modalScreen = document.querySelector(".modal-screen");
