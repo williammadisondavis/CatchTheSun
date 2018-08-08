@@ -149,8 +149,22 @@ var addMarkersToMap = function (infoWindow, visiblePins) {
         google.maps.event.addListener(marker, 'click', function() {
             infoWindow.setContent(addInfoWindowContent(pin));
             infoWindow.open(map, marker);
+            window.setTimeout(function() {
+                displaySelectedMarkerFirst(pin);
+            }, 500);
         });
     })
+};
+
+var displaySelectedMarkerFirst = function (selectedMarker) {
+    var visibleMarkers = getVisibleMarkers();
+    var firstMarker;
+    var newListOfMarkers = [];
+    visibleMarkers.forEach(function (marker) {
+        marker === selectedMarker ? firstMarker = marker : newListOfMarkers.push(marker);
+    });
+    newListOfMarkers.unshift(firstMarker);
+    showVisibleMarkers(newListOfMarkers);
 };
 
 var addInfoWindowContent = function (pin) {
