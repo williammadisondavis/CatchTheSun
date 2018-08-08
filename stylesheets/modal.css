@@ -110,11 +110,6 @@
 }
 
 @media(min-width: 1200px) {
-    .modal-info {
-        width: 40rem;
-        height: 40rem;
-    }
-
     .modal-box {
         width: 70%;
         height: 70%;
