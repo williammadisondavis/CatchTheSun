@@ -9,37 +9,121 @@
     justify-content: center;
     align-items: center;
 }
+
 .close-modal {
     position: absolute;
     top: 1rem;
-    right: 1rem;
+    right: 0.2em;
     font-size: 2em;
-    color: rgba(256,256,256,0.4);
+    font-family: 'PT Sans', sans-serif;
+    color: white;
 }
+
 .modal-box {
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    height: 45rem;
+    height: 80%;
+    border-radius: 0.5em;
 
     /* Temporary background color to see layout */
-    background-color: orange;
+    background: #ECE9E6;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.modal-image-container {
+    width: 90%;
+    height: 60%;
+    margin: 1.5rem auto;
 }
 
 .modal-image {
-    width: 30rem;
-    height: 30rem;
-    margin: 1rem auto;
-    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.modal-divider {
+    visibility: hidden;
+    margin: 0;
 }
 
 .modal-info {
-    width: 30rem;
-    height: 10rem;
+    width: 90%;
+    height: 30%;
     margin: auto;
+    margin-top: 0.2em;
+    font-size: 1.3em;
+    padding-left: 0.5em;
 
     /* Temporary background color to see layout */
-    background-color: yellow;
+    background-color: rgb(256,256,256);
+}
+
+.modal-title {
+    font-weight: bold;
+    margin-top: 0.2em;
 }
 
 .hidden {
     display: none;
+}
+
+@media (min-width: 370px) {
+    .close-modal {
+        top: 0.5em;
+        font-size: 2.3em;
+    }
+}
+
+@media (min-width: 768px) {
+    .close-modal {
+        top: -1em;
+        right: 0.4em;
+        font-size: 3em;
+    }
+
+    .modal-box {
+        flex-direction: row;
+        width: 90%;
+        height: 50%;
+    }
+
+    .modal-image-container {
+        width: 60%;
+        height: 72%;
+        margin: auto 4% auto;
+    }
+
+    .modal-divider {
+        visibility: visible;
+        margin: 6em 0;
+        border-right: 0.1em solid lightgrey;
+    }
+
+    .modal-info {
+        width: 40%;
+        height: 72%;
+        margin: auto 4%;
+        font-size: 1.5em;
+    }
+}
+
+@media(min-width: 1200px) {
+    .modal-box {
+        width: 70%;
+        height: 70%;
+    }
+
+    .modal-image-container {
+        height: 85%;
+    }
+
+    .modal-divider {
+        margin: 3em 0;
+    }
+
+    .modal-info {
+        height: 85%;
+    }
 }
