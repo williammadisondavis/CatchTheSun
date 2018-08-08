@@ -2,31 +2,36 @@ var pins = [
     { 
       title: "Stone Mountain",
       position: {lat: 33.8082, lng: -84.1702}, 
-      description: "Gummies fruitcake marshmallow chocolate oat cake tootsie roll marshmallow cookie pie. Oat cake bonbon biscuit lemon drops. Bonbon bear claw bonbon cotton candy sweet pie jelly beans.", 
+      description: "Gummies fruitcake marshmallow chocolate oat cake tootsie roll marshmallow cookie pie. Oat cake bonbon biscuit lemon drops. Bonbon bear claw bonbon cotton candy sweet pie jelly beans.",
+      summary: "Less than like 150 character or something, about a sunset.", 
       image: "images/image01.jpg" 
     },
     { 
       title: "Arabia Mountain",
       position: {lat: 33.6651, lng: -84.11182}, 
-      description: "Pastry cookie caramels pudding. Fruitcake sweet roll jelly-o cookie gummi bears liquorice. Bonbon jelly-o jujubes powder marzipan biscuit topping marshmallow marshmallow.", 
+      description: "Pastry cookie caramels pudding. Fruitcake sweet roll jelly-o cookie gummi bears liquorice. Bonbon jelly-o jujubes powder marzipan biscuit topping marshmallow marshmallow.",
+      summary: "Less than like 150 character or something, about a sunset.", 
       image: "images/image02.jpg"
     },
     { 
       title: "Glenn Hotel Rooftop Bar",
       position: {lat: 33.759126, lng: -84.394726}, 
-      description: "Dragée muffin jujubes. Donut chocolate cake tootsie roll cake danish macaroon sweet. Sweet cake cake chocolate bar danish icing ice cream jelly beans. Marshmallow bear claw jelly.", 
+      description: "Dragée muffin jujubes. Donut chocolate cake tootsie roll cake danish macaroon sweet. Sweet cake cake chocolate bar danish icing ice cream jelly beans. Marshmallow bear claw jelly.",
+      summary: "Less than like 150 character or something, about a sunset.", 
       image: "images/image03.jpg"
     },
     { 
       title: "Lullwater Park",
       position: {lat: 33.802188, lng: -84.314281}, 
-      description: "Jujubes bonbon toffee brownie jelly-o bonbon jelly-o chocolate bar. Jelly-o caramels tiramisu sweet chocolate bar. Cake jelly-o sweet apple pie.", 
+      description: "Jujubes bonbon toffee brownie jelly-o bonbon jelly-o chocolate bar. Jelly-o caramels tiramisu sweet chocolate bar. Cake jelly-o sweet apple pie.",
+      summary: "Less than like 150 character or something, about a sunset.",
       image: "images/image04.jpg"
     },
     { 
       title: "Morningside Nature Preserve Trail",
       position: {lat: 33.806707, lng: -84.356759}, 
-      description: "Sugar plum pie chocolate cake cake ice cream gummies marshmallow. Donut liquorice bonbon jelly topping bear claw bear claw icing sweet. Ice cream macaroon halvah dessert pie gummi bears.", 
+      description: "Sugar plum pie chocolate cake cake ice cream gummies marshmallow. Donut liquorice bonbon jelly topping bear claw bear claw icing sweet. Ice cream macaroon halvah dessert pie gummi bears.",
+      summary: "Less than like 150 character or something, about a sunset.",
       image: "images/image05.jpg"
     },
 ];
@@ -105,7 +110,7 @@ var listingInfoDisplay = function (pin) {
     var listingInfoContainer = document.createElement("div");
     listingInfoContainer.classList.add("listing-info");
     listingInfoContainer.appendChild(listingInfoTitle(pin));
-    listingInfoContainer.appendChild(listingInfoDescription(pin));
+    listingInfoContainer.appendChild(listingInfoSummary(pin));
     return listingInfoContainer;
 };
 
@@ -116,12 +121,12 @@ var listingInfoTitle = function (pin) {
     return listingTitle;
 };
 
-var listingInfoDescription = function (pin) {
-    var listingDescription = document.createElement("p");
-    listingDescription.classList.add("listing-description");
-    listingDescription.classList.add("description-visibility");
-    listingDescription.textContent = pin.description;
-    return listingDescription;
+var listingInfoSummary = function (pin) {
+    var listingSummary = document.createElement("p");
+    listingSummary.classList.add("listing-summary");
+    listingSummary.classList.add("summary-visibility");
+    listingSummary.textContent = pin.summary;
+    return listingSummary;
 };
 
 var listingImageDisplay = function(pin) {
