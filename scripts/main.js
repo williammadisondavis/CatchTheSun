@@ -33,6 +33,7 @@ var pins = [
 
 var map;
 var mapContainer = document.querySelector(".map");
+var searchListings = document.querySelector(".search-listings");
 var modalScreen = document.querySelector(".modal-screen");
 var modalImage = document.querySelector(".modal-image");
 var modalTitle = document.querySelector(".modal-title");
@@ -46,26 +47,32 @@ var initMap = function () {
     });
     var infoWindow = new google.maps.InfoWindow();
     loadSearchBox();
-    addMarkersToMap(infoWindow);
-    showVisibleMarkers();
+    handleMapIdleEvent(infoWindow);
 };
 
-var showVisibleMarkers = function () {
-    // Fired when the map becomes idle after panning or zooming.
-    google.maps.event.addListener(map, 'idle', function() {
-        // get bounds of current map viewport
-        var mapBounds = map.getBounds();
-        var searchListings = document.querySelector(".search-listings");
-        clearListingDisplay();
-        // loop through pins objects
-        pins.forEach(function (pin) {
-            // if mapBounds contains the pin position
-            if (mapBounds.contains(pin.position)) {
-                // display on screen
-                searchListings.appendChild(displayListing(pin));
-            }
-        })
+var handleMapIdleEvent = function (infoWindow) {
+    google.maps.event.addListener(map, "idle", function () {
+        addMarkersToMap(infoWindow, getVisibleMarkers());
+        showVisibleMarkers(getVisibleMarkers());
     });
+};
+
+var getVisibleMarkers = function () {
+    var visibleMarkers = [];
+    var mapBounds = map.getBounds();
+    pins.forEach(function (pin) {
+        if (mapBounds.contains(pin.position)) {
+            visibleMarkers.push(pin)
+        }
+    })
+    return visibleMarkers;
+};
+
+var showVisibleMarkers = function (visibleMarkers) {
+    clearListingDisplay();
+    visibleMarkers.forEach(function (pinMarker) {
+        searchListings.appendChild(displayListing(pinMarker));
+    })
 };
 
 var clearListingDisplay = function () {
@@ -124,8 +131,8 @@ var listingImageDisplay = function(pin) {
     return listingImage;
 };
 
-var addMarkersToMap = function (infoWindow) {
-    pins.forEach( function (pin) {
+var addMarkersToMap = function (infoWindow, visiblePins) {
+    visiblePins.forEach( function (pin) {
         var markerIcon = {
             url: 'https://maps.google.com/mapfiles/kml/shapes/sunny.png',
             size: new google.maps.Size(30, 30),
