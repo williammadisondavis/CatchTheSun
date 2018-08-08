@@ -110,7 +110,7 @@ var listingInfoDisplay = function (pin) {
 };
 
 var listingInfoTitle = function (pin) {
-    var listingTitle = document.createElement("p");
+    var listingTitle = document.createElement("h3");
     listingTitle.classList.add("listing-title");
     listingTitle.textContent = pin.title;
     return listingTitle;
