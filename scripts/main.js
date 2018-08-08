@@ -164,12 +164,21 @@ var addMarkersToMap = function (infoWindow, visiblePins) {
 var displaySelectedMarkerFirst = function (selectedMarker) {
     var visibleMarkers = getVisibleMarkers();
     var firstMarker;
-    var newListOfMarkers = [];
+    var remainingMarkers = [];
     visibleMarkers.forEach(function (marker) {
-        marker === selectedMarker ? firstMarker = marker : newListOfMarkers.push(marker);
+        marker === selectedMarker ? firstMarker = marker : remainingMarkers.push(marker);
     });
-    newListOfMarkers.unshift(firstMarker);
-    showVisibleMarkers(newListOfMarkers);
+    showHighlightedFirstMarker(firstMarker, remainingMarkers);
+};
+
+var showHighlightedFirstMarker = function (firstMarker, remainingMarkers) {
+    clearListingDisplay();
+    var highlightedLisiting = displayListing(firstMarker);
+    highlightedLisiting.classList.add("highlight-listing");
+    searchListings.appendChild(highlightedLisiting);
+    remainingMarkers.forEach(function (marker) {
+        searchListings.appendChild(displayListing(marker));
+    })
 };
 
 var addInfoWindowContent = function (pin) {
