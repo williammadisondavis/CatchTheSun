@@ -167,5 +167,33 @@ var pinsData = {PINS: [
       summary: "Less than like 150 character or something, about a sunset.",
       image: "images/nanakuli-beach-park-waianae.jpg"
     },
+    { 
+      title: "Back River, Tybee Island",
+      position: {lat: 32.0271, lng: -80.8905}, 
+      description: "Fort Pulaski National Monument is located on Cockspur Island between Savannah and Tybee Island, Georgia.",
+      summary: "Go geocaching, or go to this LIT 🏕 🔥 camping ground I know of.", 
+      image: "images/backriver.jpg" 
+    },
+    { 
+      title: "South Beach",
+      position: {lat: 32.000215, lng: -80.845666}, 
+      description: ".",
+      summary: "Remember, sun speaks to everyone. This is a family beach, however the sunset is amazing.", 
+      image: "images/image07.jpg" 
+    },
+    { 
+      title: "Point Dumé",
+      position: {lat: 34.0012, lng: -118.8064}, 
+      description: "Point Dumé is a bluff which sits off the coast of Malibu, and invites surfers and climbers from all over to enjoy its beauty and prowess. There is excellent cuisine around the area including a local spot called Fish Grill.",
+      summary: "I can now say I understand what it means to want to die like a California Sunset", 
+      image: "images/image08.jpg" 
+    },
+    { 
+      title: "Hollywood Sign Hike + Sunset",
+      position: {lat: 34.1341, lng: -118.3215}, 
+      description: "Gummies fruitcake marshmallow chocolate oat cake tootsie roll marshmallow cookie pie. Oat cake bonbon biscuit lemon drops. Bonbon bear claw bonbon cotton candy sweet pie jelly beans.",
+      summary: "", 
+      image: "images/image09.jpg" 
+    },
   ]
   };
