@@ -42,10 +42,11 @@ body, html {
 
 .map {
     height: 70%;
+    border-radius: 0.5em;
+    border: 0.3em solid lightgrey;
 }
 
 .search-listings {
-    width: 100%;
     height: 30%;
     overflow-y: auto;
     margin-top: 1em;
@@ -131,14 +132,13 @@ body, html {
     }
 
     .map {
+        margin: 0 4%; 
         height: 75%;
-        border-radius: 0.5em;
-        border: 0.3em solid lightgrey;
     }
 
     .search-listings {
+        margin: 2.5%;
         height: 90%;
-        margin-top: 1.5em;
     }
 
     .listing {
@@ -173,7 +173,6 @@ body, html {
         margin: 1% 1% 1% 2%;
         width: 50%;
         height: 90%;
-        border-radius: .5rem;
     }
 
     .listing {
