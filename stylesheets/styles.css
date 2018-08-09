@@ -7,8 +7,6 @@ body, html {
     font-size: 10px;
     background-image: url('../assets/splash.png');
     background-size: cover;
-
-
 }
 
 .header {
@@ -44,13 +42,14 @@ body, html {
 
 .map {
     height: 70%;
+    border-radius: 0.5em;
+    border: 0.3em solid lightgrey;
 }
 
 .search-listings {
-    width: 100%;
     height: 30%;
     overflow-y: auto;
-    margin-top: 0.5em;
+    margin-top: 1em;
 }
 
 .listing {
@@ -128,20 +127,18 @@ body, html {
 
 
 @media(min-width: 768px) {
-
     .search-input {
         width: 23em;
     }
 
     .map {
+        margin: 0 4%; 
         height: 75%;
-        border-radius: 0.5em;
-        border: 0.3em solid lightgrey;
     }
 
     .search-listings {
-        height: 85%;
-        padding-top: 0.5em;
+        margin: 2.5%;
+        height: 90%;
     }
 
     .listing {
@@ -173,10 +170,9 @@ body, html {
     }
 
     .map {
-        margin-top: 1em;
+        margin: 1% 1% 1% 2%;
         width: 50%;
         height: 90%;
-        border-radius: .5rem;
     }
 
     .listing {
@@ -186,6 +182,7 @@ body, html {
 
     .search-listings {
         width: 50%;
+        margin: 1% 1.5% 1% 1%;
     }
 
     .listing-image {
