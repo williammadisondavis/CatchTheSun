@@ -1,5 +1,6 @@
 var pins = pinsData.PINS;
 
+var gmKey = config.GM_KEY;
 var map;
 var mapContainer = document.querySelector(".map");
 var searchListings = document.querySelector(".search-listings");
