@@ -43,3 +43,27 @@ This is a frontend group project built with HTML/CSS, JavaScript, and the Google
   ```
 
   Save the file and you are ready to run the application. Yay! :)
+
+## Challenges
+
+* MOVE LISTING FOR SELECTED MARKER TO TOP OF DISPLAY  
+    
+  - How the feature works:  
+      1) You select a marker on the map
+      2) An Info Window for that marker is opened
+      3) The listing for the selected marker is moved to the top of the display
+  
+  - Problem:  
+    When someone selects a marker on the map, the info window opening would sometimes cause the map viewport to change. The viewport change would then cause the listings display to refresh. This would then overwrite the call to display the selected marker first. So, in the end you would just see an unordered display of listings.
+  
+  - Solution:  
+    To fix this problem, the displaySelectedMarkerFirst function call was wrapped in a setTimeout function.  This gave the map a half second to refresh itself before updating the display listings.
+    ```
+    google.maps.event.addListener(marker, 'click', function() {
+      infoWindow.setContent(addInfoWindowContent(pin));
+      infoWindow.open(map, marker);
+      window.setTimeout(function() {
+          displaySelectedMarkerFirst(pin);
+      }, 500);
+    });
+    ```
