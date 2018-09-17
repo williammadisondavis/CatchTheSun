@@ -67,3 +67,10 @@ This is a frontend group project built with HTML/CSS, JavaScript, and the Google
       }, 500);
     });
     ```
+
+## Demo  
+  <div style="position:absolute; left: 50px;">
+    <a href="https://youtu.be/3T0whD_oIG0" target="_blank" left='30px'>
+      <img src="assets/screen-shot.jpg"/>
+    </a>
+  </div>
