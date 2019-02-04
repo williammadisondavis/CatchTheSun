@@ -1,6 +1,6 @@
 # Catch the Sun
 
-<img src='assets/catch-the-sun-desktop-v3.jpg' alt='Catch the Sun application on desktop'/>
+<img src='assets/catch-the-sun-desktop-v2.jpg' alt='Catch the Sun application on desktop'/>
 
 ## About 
 Catch the Sun is a frontend web application for active explorers yearning to discover their next adventure, find hidden gem sceneries, and catch a beautiful sunset.
@@ -34,7 +34,7 @@ Catch the Sun is a frontend web application for active explorers yearning to dis
 
     <img src='assets/click-individual-listing.png' alt='Explorer clicking on an individual listing result' style='margin-top:10px; margin-left:35px'/>
 
-    <img src='assets/open-modal-window.png' alt='After clicking on a listing result, a modal window opens with more information for the explorer' style='margin-top:10px; margin-left:35px' >
+    <img src='assets/open-modal-window.png' alt='After clicking on a listing result, a modal window opens with more information for the explorer' style='margin-top:20px; margin-left:35px' >
 
 ## Video Demo
   <div style='margin-left:70px; margin-top:10px'>
