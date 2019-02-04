@@ -24,17 +24,25 @@ Catch the Sun is a frontend web application for active explorers yearning to dis
 
     <img src='assets/explorers-search-map.png' alt='Explorer searching map for location of San Diego, CA' style='margin-top:10px; margin-left:35px'/>
 
+    <div style="margin-top:10px; margin-bottom:10px; margin-left:35px"><em>Search map: Looking up San Diego, CA</em></div>
+
 - EXPLORERS CAN VIEW MARKERS AND LISTING RESULTS BASED ON THEIR SEARCH QUERY
   - After inputting a location into the search box, explorers are able to view markers on the map (if any) that have been previously uploaded by other explorers for that area.
 
     <img src='assets/view-search-results.png' alt='Explorer viewing map markers and listing results after inputting Atlanta, GA as their search query' style='margin-top:10px; margin-left:35px'/>
 
+    <div style="margin-top:10px; margin-bottom:10px; margin-left:35px"><em>Get results: Map markers and listing results displayed after searching Atlanta, GA</em></div>
+
 - EXPLORERS CAN VIEW MORE INFORMATION ABOUT EACH LISTING IN A MODAL WINDOW
-  - As explorers view the search results for their query, they can click any of the individual listings to view additional information for each. Clicking on a listing will open a modal window.
+  - As explorers view the search results for their query, they can click any of the individual listings to view additional information for each. Clicking on a listing will open a modal window, which can be closed by clicking anywhere outside of it.
 
     <img src='assets/click-individual-listing.png' alt='Explorer clicking on an individual listing result' style='margin-top:10px; margin-left:35px'/>
 
-    <img src='assets/open-modal-window.png' alt='After clicking on a listing result, a modal window opens with more information for the explorer' style='margin-top:20px; margin-left:35px' >
+    <div style="margin-top:10px; margin-bottom:10px; margin-left:35px"><em>Focus on an individual listing: Let's get more information about this listing!</em></div>
+
+    <img src='assets/open-modal-window.png' alt='After clicking on a listing result, a modal window opens with more information for the explorer' style='margin-top:20px; margin-left:35px'/>
+
+    <div style="margin-top:10px; margin-bottom:10px; margin-left:35px"><em>Modal window: Provides additional details for the explorer to view</em></div>
 
 ## Video Demo
   <div style='margin-left:70px; margin-top:10px'>
