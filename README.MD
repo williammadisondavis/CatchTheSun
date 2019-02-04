@@ -22,17 +22,19 @@ Catch the Sun is a frontend web application for active explorers yearning to dis
 - EXPLORERS CAN SEARCH MAP BASED ON DESIRED LOCATION:
   - Using the Google Places Library, explorers are able to search the map based on their desired location.
 
-    <img src='assets/explorers-search-map.gif' alt='Explorer searching map for location of San Diego, CA' style='margin-top:10px'/>
+    <img src='assets/explorers-search-map.png' alt='Explorer searching map for location of San Diego, CA' style='margin-top:10px; margin-left:35px'/>
 
 - EXPLORERS CAN VIEW MARKERS AND LISTING RESULTS BASED ON THEIR SEARCH QUERY
   - After inputting a location into the search box, explorers are able to view markers on the map (if any) that have been previously uploaded by other explorers for that area.
 
-    <img src='assets/search-map-results.gif' alt='Explorer viewing map markers and listing results after inputting Atlanta, GA as their search query' style='margin-top:10px'/>
+    <img src='assets/view-search-results.png' alt='Explorer viewing map markers and listing results after inputting Atlanta, GA as their search query' style='margin-top:10px; margin-left:35px'/>
 
 - EXPLORERS CAN VIEW MORE INFORMATION ABOUT EACH LISTING IN A MODAL WINDOW
   - As explorers view the search results for their query, they can click any of the individual listings to view additional information for each. Clicking on a listing will open a modal window.
 
-    <img src='assets/open-modal-for-details.gif' alt='Explorer clicking on an individual listing result, which opens up a modal window with more information' style='margin-top:10px'/>
+    <img src='assets/click-individual-listing.png' alt='Explorer clicking on an individual listing result' style='margin-top:10px; margin-left:35px'/>
+
+    <img src='assets/open-modal-window.png' alt='After clicking on a listing result, a modal window opens with more information for the explorer' style='margin-top:10px; margin-left:35px' >
 
 ## Video Demo
   <div style='margin-left:70px; margin-top:10px'>
