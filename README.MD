@@ -1,6 +1,6 @@
 # Catch the Sun
 
-<img src='assets/catch-the-sun-desktop-v2.jpg' alt='Catch the Sun application on desktop'/>
+<img src='assets/catch-the-sun-desktop-v4.jpg' alt='Catch the Sun application on desktop'/>
 
 ## About 
 Catch the Sun is a frontend web application for active explorers yearning to discover their next adventure, find hidden gem sceneries, and catch a beautiful sunset.
@@ -34,13 +34,15 @@ Catch the Sun is a frontend web application for active explorers yearning to dis
     <div style="margin-top:10px; margin-bottom:10px; margin-left:35px"><em>Get results: Map markers and listing results displayed after searching Atlanta, GA</em></div>
 
 - EXPLORERS CAN VIEW MORE INFORMATION ABOUT EACH LISTING IN A MODAL WINDOW
-  - As explorers view the search results for their query, they can click any of the individual listings to view additional information for each. Clicking on a listing will open a modal window, which can be closed by clicking anywhere outside of it.
+  - As explorers view the search results for their query, they can click any of the individual listings to view additional information for each. 
 
     <img src='assets/click-individual-listing.png' alt='Explorer clicking on an individual listing result' style='margin-top:10px; margin-left:35px'/>
 
     <div style="margin-top:10px; margin-bottom:10px; margin-left:35px"><em>Focus on an individual listing: Let's get more information about this listing!</em></div>
 
-    <img src='assets/open-modal-window.png' alt='After clicking on a listing result, a modal window opens with more information for the explorer' style='margin-top:20px; margin-left:35px'/>
+  - Clicking on a listing will open a modal window, which can be closed by clicking anywhere outside of it.
+
+    <img src='assets/open-modal-window.png' alt='After clicking on a listing result, a modal window opens with more information for the explorer' style='margin-top:10px; margin-left:35px'/>
 
     <div style="margin-top:10px; margin-bottom:10px; margin-left:35px"><em>Modal window: Provides additional details for the explorer to view</em></div>
 
@@ -53,7 +55,7 @@ Catch the Sun is a frontend web application for active explorers yearning to dis
 
 ## Challenges
 
-* **MOVE LISTING FOR SELECTED MARKER TO TOP OF DISPLAY**
+* MOVE LISTING FOR SELECTED MARKER TO TOP OF DISPLAY
     
   - How the feature works:  
       1) The user selects a marker on the map
