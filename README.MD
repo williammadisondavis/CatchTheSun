@@ -1,63 +1,63 @@
 # Catch the Sun
-**A web application for active explorers yearning to discover their next adventure, find hidden gem sceneries, and catch a beautiful sunset. Uses the Google Maps API.**
 
-This is a frontend group project built with HTML/CSS, JavaScript, and the Google Maps API.
+<img src='assets/catch-the-sun-desktop.jpg' alt='Catch the Sun application on desktop'/>
+
+## About 
+Catch the Sun is a frontend web application for active explorers yearning to discover their next adventure, find hidden gem sceneries, and catch a beautiful sunset.
 
 ## Contributors
-* Liz Khuu
-* Clint Urbin
-* Will Davis
+- Liz Khuu
+- Clint Urbin
+- Will Davis
 
-## Getting Started
+## Technologies Used
+- HTML, CSS, JavaScript, Google Maps API, Firebase
 
-* STEP 1 | Obtain a Google Maps API Key
+## Key Features
+- Explorers can search map based on desired location
+- Explorers can view markers and listing results based on their search query
+- Explorers can view more information about each listing in a modal window
 
-  In order to run our web application, you will need to obtain a Google Maps API Key. To do so, please head over to the Google Maps Platform for Developers at: https://developers.google.com/maps/documentation/javascript/get-api-key and follow the instructions. 
+## Features in Detail
+- EXPLORERS CAN SEARCH MAP BASED ON DESIRED LOCATION:
+  - Using the Google Places Library, explorers are able to search the map based on their desired location.
 
-  *Please note:* You must have a current Gmail account or create a new one in order to continue.
+    <img src='assets/explorers-search-map.gif' alt='Explorer searching map for location of San Diego, CA' style='margin-top:10px'/>
 
-* STEP 2 | Clone the project repository and go into it
+- EXPLORERS CAN VIEW MARKERS AND LISTING RESULTS BASED ON THEIR SEARCH QUERY
+  - After inputting a location into the search box, explorers are able to view markers on the map (if any) that have been previously uploaded by other explorers for that area.
 
-  Run the following commands:
+    <img src='assets/search-map-results.gif' alt='Explorer viewing map markers and listing results after inputting Atlanta, GA as their search query' style='margin-top:10px'/>
 
-  ```
-  git clone git@github.com:williammadisondavis/CatchTheSun.git
-  cd CatchTheSun\
-  ```
+- EXPLORERS CAN VIEW MORE INFORMATION ABOUT EACH LISTING IN A MODAL WINDOW
+  - As explorers view the search results for their query, they can click any of the individual listings to view additional information for each. Clicking on a listing will open a modal window.
 
-* STEP 3 | Once in the project repository, go into the scripts folder and create a new file called config.js
+    <img src='assets/open-modal-for-details.gif' alt='Explorer clicking on an individual listing result, which opens up a modal window with more information' style='margin-top:10px'/>
 
-  ``` 
-  cd scripts
-  touch config.js
-  ```
-
-* STEP 4 | In config.js, this is where we are going to hide the Google Maps API Key
-
-  In config.js, add the following, replacing "your-key-here" with the Google Maps API Key that you have obtained from Step 1:
-
-  ```
-  var config = {
-    GM_KEY: "your-key-here"
-  };
-  ```
-
-  Save the file and you are ready to run the application. Yay! :)
+## Video Demo  
+  <div style='margin-left:70px; margin-top:10px'>
+    <a href='https://youtu.be/3T0whD_oIG0' target='_blank'>
+      <img src='assets/catch-the-sun-minimized.jpg'/>
+    </a>
+  </div>
 
 ## Challenges
 
-* MOVE LISTING FOR SELECTED MARKER TO TOP OF DISPLAY  
+* **MOVE LISTING FOR SELECTED MARKER TO TOP OF DISPLAY**
     
   - How the feature works:  
       1) The user selects a marker on the map
       2) An Info Window for that marker is opened
       3) The listing for the selected marker is moved to the top of the display
   
-  - Problem:  
+  - Problem:
+
     When the user selects a marker on the map, the marker’s informational window opening would sometimes cause the viewport to shift. This viewport shift would then trigger the listings results to refresh, and then overwrite the initial call to display the user’s selected marker first. Thus, the user would continue to see an unordered display of listings.
   
-  - Solution:  
+  - Solution:
+
     To fix this problem, the displaySelectedMarkerFirst function call was wrapped in a setTimeout function. This gave the map a half second to refresh itself before updating the display listings.
+
     ```
     google.maps.event.addListener(marker, 'click', function() {
       infoWindow.setContent(addInfoWindowContent(pin));
@@ -67,10 +67,3 @@ This is a frontend group project built with HTML/CSS, JavaScript, and the Google
       }, 500);
     });
     ```
-
-## Demo  
-  <div style="position:absolute; left: 50px;">
-    <a href="https://youtu.be/3T0whD_oIG0" target="_blank" left='30px'>
-      <img src="assets/screen-shot.jpg"/>
-    </a>
-  </div>
