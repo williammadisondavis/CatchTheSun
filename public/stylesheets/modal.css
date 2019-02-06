@@ -84,8 +84,6 @@
 
     .modal-box {
         flex-direction: row;
-        width: 80%;
-        height: 80%;
     }
 
     .modal-image-container {
